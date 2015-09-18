@@ -17,6 +17,7 @@ RUN export DEBIAN_FRONTEND='noninteractive' && \
     chown -Rh debian-transmission. /var/lib/transmission-daemon && \
     rm -rf /var/lib/apt/lists/* /tmp/*
 
+RUN (addgroup --gid=1000 nick)
 RUN (adduser --system --uid=1000 --gid=1000 \
         --home /home/nick --shell /bin/bash nick)
 
