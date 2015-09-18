@@ -16,6 +16,10 @@ RUN export DEBIAN_FRONTEND='noninteractive' && \
                 mkdir -p /var/lib/transmission-daemon/info/blocklists && \
     chown -Rh debian-transmission. /var/lib/transmission-daemon && \
     rm -rf /var/lib/apt/lists/* /tmp/*
+
+RUN (adduser --system --uid=1000 --gid=1000 \
+        --home /home/nick --shell /bin/bash nick)
+
 COPY transmission.sh /usr/bin/
 
 VOLUME ["/var/lib/transmission-daemon"]

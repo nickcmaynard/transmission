@@ -80,7 +80,7 @@ elif [[ $# -ge 1 ]]; then
 elif ps -ef | egrep -v 'grep|transmission.sh' | grep -q transmission; then
     echo "Service already running, please restart container to apply changes"
 else
-    exec su -l debian-transmission -s /bin/bash -c "exec transmission-daemon \
+    exec su -l nick -s /bin/bash -c "exec transmission-daemon \
                 --config-dir $dir/info \
                 --foreground \
                 --no-portmap --allowed \\* 2>&1"
